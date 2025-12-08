@@ -1,0 +1,133 @@
+/* ===== Futuristic Neon Style ===== */
+:root {
+  --bg: #0a0f1f;
+  --panel: rgba(255,255,255,0.04);
+  --accent: #0ff;
+  --accent2: #f0f;
+  --text: #e9e9e9;
+  --card-glow: 0 0 20px var(--accent);
+}
+
+body {
+  margin: 0;
+  font-family: "Orbitron", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+#app {
+  width: 100%;
+  max-width: 950px;
+  padding: 20px;
+}
+
+/* Panels */
+.panel {
+  background: var(--panel);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: var(--card-glow);
+  backdrop-filter: blur(6px);
+  margin-bottom: 20px;
+}
+
+/* 5×2 Grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+}
+
+.square {
+  position: relative;
+  height: 120px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #111, #222);
+  border: 2px solid rgba(255,255,255,0.15);
+  transition: 0.2s;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(0,255,255,0.2);
+}
+
+.square.active {
+  box-shadow: 0 0 35px var(--accent2), inset 0 0 20px var(--accent2);
+  transform: scale(1.07);
+}
+
+/* Buttons */
+button {
+  background: transparent;
+  border: 1px solid var(--accent);
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--accent);
+  font-family: inherit;
+  transition: 0.2s;
+  margin-right: 8px;
+}
+
+button:hover {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* Login Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: var(--panel);
+  padding: 25px;
+  border-radius: 10px;
+  width: 350px;
+  box-shadow: 0 0 20px var(--accent);
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+}
+
+/* Animations for notifications */
+@keyframes slideIn {
+  from {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(400px);
+    opacity: 0;
+  }
+}
